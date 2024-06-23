@@ -1,0 +1,368 @@
+//switching to database 
+
+ Atlas atlas-nrsxx9-shard-0 [primary] nxtrendz> use nxttrendz
+
+//creating a collection 
+
+ Atlas atlas-nrsxx9-shard-0 [secondary] nxttrendz> db.createCollection("products")
+
+//inserting a document 
+
+ Atlas atlas-nrsxx9-shard-0 [primary] nxtrendz> db.product.insertOne({name:"Smart watch",price:22995,category:"Watches",brand:"Fossil",discount_in_percentage:10})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6677cfbf2d2b9012fa42fe0d')
+} 
+
+//inserting multiple documents 
+
+ Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.insertMany([{name:"Laptop",price:57999,category:"Electronics",brand:"Dell",rating:4,discount_in_percentage:5},{name:"SmartPhone",price:7999,category:"Electronics",brand:"Xiomi",rating:2,discount_in_percentage:15},{name:"Analog Watch",price:1999,category:"Watches",brand:"Casio",rating:3,discount_in_percentage:8},{name:"Digital Watch",price:1499,category:"Watches",brand:"Timex",rating:2,discount_in_percentage:12},{name:"T-Shirt",price:599,category:"Clothing",brand:"Puma",rating:5,discount_in_percentage:10},{name:"Jeans",price:1499,category:"Clothing",brand:"Denim",rating:1,discount_in_percentage:20},{name:"Shirt",price:2399,category:"Clothing",brand:"Killer",rating:5,discount_in_percentage:14},{name:"Bat",price:"2999",category:"Sport",brand:"Yonex",rating:3},{name:"Cricket Bat",price:1999,category:"Sport",brand:"SG",rating:5},{name:"Earnings",price:599,category:"Jewelry",brand:"Swarovski",rating:5,discount_in_percentage:8},{name:"Backpack",price:899,category:"Accessories",brand:"North Face",rating:4,discount_in_percentage:10},{name:"Football",price:999,category:"Sport",brand:"Nike",rating:4}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6677dc1e2d2b9012fa42fe0e'),
+    '1': ObjectId('6677dc1e2d2b9012fa42fe0f'),
+    '2': ObjectId('6677dc1e2d2b9012fa42fe10'),
+    '3': ObjectId('6677dc1e2d2b9012fa42fe11'),
+    '4': ObjectId('6677dc1e2d2b9012fa42fe12'),
+    '5': ObjectId('6677dc1e2d2b9012fa42fe13'),
+    '6': ObjectId('6677dc1e2d2b9012fa42fe14'),
+    '7': ObjectId('6677dc1e2d2b9012fa42fe15'),
+    '8': ObjectId('6677dc1e2d2b9012fa42fe16'),
+    '9': ObjectId('6677dc1e2d2b9012fa42fe17'),
+    '10': ObjectId('6677dc1e2d2b9012fa42fe18'),
+    '11': ObjectId('6677dc1e2d2b9012fa42fe19')
+  }
+}
+
+
+//Reading documents
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find()
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe0e'),
+    name: 'Laptop',
+    price: 57999,
+    category: 'Electronics',
+    brand: 'Dell',
+    rating: 4,
+    discount_in_percentage: 5
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe0f'),
+    name: 'SmartPhone',
+    price: 7999,
+    category: 'Electronics',
+    brand: 'Xiomi',
+    rating: 2,
+    discount_in_percentage: 15
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe10'),
+    name: 'Analog Watch',
+    price: 1999,
+    category: 'Watches',
+    brand: 'Casio',
+    rating: 3,
+    discount_in_percentage: 8
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe11'),
+    name: 'Digital Watch',
+    price: 1499,
+    category: 'Watches',
+    brand: 'Timex',
+    rating: 2,
+    discount_in_percentage: 12
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe12'),
+    name: 'T-Shirt',
+    price: 599,
+    category: 'Clothing',
+    brand: 'Puma',
+    rating: 5,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe13'),
+    name: 'Jeans',
+    price: 1499,
+    category: 'Clothing',
+    brand: 'Denim',
+    rating: 1,
+    discount_in_percentage: 20
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe14'),
+    name: 'Shirt',
+    price: 2399,
+    category: 'Clothing',
+    brand: 'Killer',
+    rating: 5,
+    discount_in_percentage: 14
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe15'),
+    name: 'Bat',
+    price: '2999',
+    category: 'Sport',
+    brand: 'Yonex',
+    rating: 3
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe16'),
+    name: 'Cricket Bat',
+    price: 1999,
+    category: 'Sport',
+    brand: 'SG',
+    rating: 5
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe17'),
+    name: 'Earnings',
+    price: 599,
+    category: 'Jewelry',
+    brand: 'Swarovski',
+    rating: 5,
+    discount_in_percentage: 8
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe18'),
+    name: 'Backpack',
+    price: 899,
+    category: 'Accessories',
+    brand: 'North Face',
+    rating: 4,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe19'),
+    name: 'Football',
+    price: 999,
+    category: 'Sport',
+    brand: 'Nike',
+    rating: 4
+  }
+]
+
+
+//Reading documents with specific condition 
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find({category:"Sport"})
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe15'),
+    name: 'Bat',
+    price: '2999',
+    category: 'Sport',
+    brand: 'Yonex',
+    rating: 3
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe16'),
+    name: 'Cricket Bat',
+    price: 1999,
+    category: 'Sport',
+    brand: 'SG',
+    rating: 5
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe19'),
+    name: 'Football',
+    price: 999,
+    category: 'Sport',
+    brand: 'Nike',
+    rating: 4
+  }
+]
+
+
+//updating a document 
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.updateMany({name:"Bat"},{$set:{price:2500}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+//Deleting a document
+
+ Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.deleteMany({name:"Jacket"})
+{ acknowledged: true, deletedCount: 1 }
+
+
+//projections in mongoDB
+
+ Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find({category:"Electronics"},{name:1,price:1,_id:1})
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe0e'),
+    name: 'Laptop',
+    price: 57999
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe0f'),
+    name: 'SmartPhone',
+    price: 7999
+  }
+]
+
+
+//Querying using conditional operators
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find({price:{$lt:1000}})
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe12'),
+    name: 'T-Shirt',
+    price: 599,
+    category: 'Clothing',
+    brand: 'Puma',
+    rating: 5,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe17'),
+    name: 'Earnings',
+    price: 599,
+    category: 'Jewelry',
+    brand: 'Swarovski',
+    rating: 5,
+    discount_in_percentage: 8
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe18'),
+    name: 'Backpack',
+    price: 899,
+    category: 'Accessories',
+    brand: 'North Face',
+    rating: 4,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe19'),
+    name: 'Football',
+    price: 999,
+    category: 'Sport',
+    brand: 'Nike',
+    rating: 4
+  }
+]
+
+//ordering the results
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find({price:{$lt:1000}}).sort({rating:-1})
+
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe12'),
+    name: 'T-Shirt',
+    price: 599,
+    category: 'Clothing',
+    brand: 'Puma',
+    rating: 5,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe17'),
+    name: 'Earnings',
+    price: 599,
+    category: 'Jewelry',
+    brand: 'Swarovski',
+    rating: 5,
+    discount_in_percentage: 8
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe18'),
+    name: 'Backpack',
+    price: 899,
+    category: 'Accessories',
+    brand: 'North Face',
+    rating: 4,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe19'),
+    name: 'Football',
+    price: 999,
+    category: 'Sport',
+    brand: 'Nike',
+    rating: 4
+  }
+]
+
+
+//Pagination in mongoDB
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find({price:{$lt:1000}}).sort({rating:-1,price:1}).limit(3)
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe12'),
+    name: 'T-Shirt',
+    price: 599,
+    category: 'Clothing',
+    brand: 'Puma',
+    rating: 5,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe17'),
+    name: 'Earnings',
+    price: 599,
+    category: 'Jewelry',
+    brand: 'Swarovski',
+    rating: 5,
+    discount_in_percentage: 8
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe18'),
+    name: 'Backpack',
+    price: 899,
+    category: 'Accessories',
+    brand: 'North Face',
+    rating: 4,
+    discount_in_percentage: 10
+  }
+]
+
+
+//Logical operators
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.find({$and:[{$or:[{brand:"Puma"},{brand:"Denim"}]},{price:{$lte:1500}}]})
+[
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe12'),
+    name: 'T-Shirt',
+    price: 599,
+    category: 'Clothing',
+    brand: 'Puma',
+    rating: 5,
+    discount_in_percentage: 10
+  },
+  {
+    _id: ObjectId('6677dc1e2d2b9012fa42fe13'),
+    name: 'Jeans',
+    price: 1499,
+    category: 'Clothing',
+    brand: 'Denim',
+    rating: 1,
+    discount_in_percentage: 20
+  }
+]
+
+
+// aggregate functions
+
+Atlas atlas-nrsxx9-shard-0 [primary] nxttrendz> db.products.aggregate([{$match:{$and:[{rating:{$gte:3.5}},{price:{$lte:1500}}]}},{$group:{_id:'$category',total_price:{$sum:"$price"}}},{$project:{category:1,total_price:1}}])
+[
+  { _id: 'Jewelry', total_price: 599 },
+  { _id: 'Accessories', total_price: 899 },
+  { _id: 'Clothing', total_price: 599 },
+  { _id: 'Sport', total_price: 999 }
+]
